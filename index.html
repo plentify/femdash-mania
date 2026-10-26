@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FemDash!Mania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="bg"></div>
+<div class="screen pre" id="menu">
+<div class="logo"><i></i>FemDash!Mania</div>
+<section class="info"><img id="cov" alt="" hidden><div class="it"><h1 id="ti"></h1><p id="ar"></p><div class="chips" id="chips"></div>
+<div class="diffs" id="diff"><button data-d="easy" style="--c:#88d84c">Easy</button><button data-d="normal" class="on" style="--c:#4fc0ff">Normal</button><button data-d="hard" style="--c:#ff6a9d">Hard</button></div>
+<p class="hint">Pick a song with ↑ ↓, change the chart with ← →, and press Enter to play. Hit A, S, K and L as notes reach the bar, or tap the lanes on a phone. Esc pauses. If hits feel early or late, change the offset in Settings.</p></div></section>
+<aside class="songs"><div id="list"></div><div id="msg"></div></aside>
+<footer class="bar"><button class="btn" id="setbtn">Settings</button><button class="play" id="go" disabled>Play</button></footer></div>
+<div class="screen" id="settings" hidden><div class="spanel"><h3>Settings</h3>
+<div class="sl"><span>Volume</span><input id="vol" type="range" min="0" max="100" step="1" value="100"><em id="vv">100%</em></div>
+<div class="sl"><span>Effects</span><input id="sfxv" type="range" min="0" max="100" step="1" value="70"><em id="xv">70%</em></div>
+<div class="sl"><span>Speed</span><input id="spd" type="range" min="0.6" max="1.8" step="0.1" value="1"><em id="sv">1.0x</em></div>
+<div class="sl"><span>Offset</span><input id="off" type="range" min="-150" max="150" step="5" value="0"><em id="ov">0 ms</em></div>
+<p class="hint">Speed sets how fast notes fall. If hits feel early or late, move the offset.</p>
+<button class="play" id="sdone">Done</button></div></div>
+<div class="screen" id="splash"><div class="ring"></div><h2>FemDash!Mania</h2><div class="by">Made by Plentify Games</div><div class="slogan">Games, Reborn</div><div class="tap">Click or press any key to start</div></div>
+<canvas id="cv"></canvas>
+<button id="pbtn" aria-label="Pause">II</button>
+<div class="screen" id="pause" hidden><div class="spanel"><h3>Paused</h3>
+<button class="play" id="presume">Resume</button><button class="btn" id="prestart">Restart</button><button class="btn" id="pquit">Song select</button></div></div>
+<div class="screen" id="res"><div class="resw">
+<div><div class="gl" id="grade">S</div><div id="rname"></div></div>
+<div class="rpanel"><div id="rscore"></div><div class="tiles" id="tiles"></div><div id="rmeta"></div>
+<div class="rb"><button class="play" id="retry">Retry</button><button class="btn" id="back">Song select</button></div></div>
+</div></div>
+<script src="rpc.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
