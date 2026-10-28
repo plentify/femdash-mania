@@ -4,8 +4,8 @@ html,body{height:100%;margin:0;background:#0d0a18;color:#fff;font-family:"Exo 2"
 #bg{position:fixed;inset:-50px;background:#241339 center/cover no-repeat;filter:blur(26px) brightness(.5) saturate(1.2)}
 #cv{position:fixed;inset:0;width:100%;height:100%;display:none;touch-action:none}
 .screen{position:fixed;inset:0;overflow:auto}
-#menu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,430px);grid-template-rows:auto 1fr auto;grid-template-areas:"logo songs" "info songs" "bar bar";gap:14px 28px;padding:18px 22px}
-.logo{grid-area:logo;font:800 1.5rem "Exo 2",sans-serif;display:flex;align-items:center;gap:12px}
+#menu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,430px);grid-template-rows:auto 1fr auto;grid-template-areas:"top top" "info songs" "bar bar";gap:14px 28px;padding:18px 22px}
+.logo{font:800 1.5rem "Exo 2",sans-serif;display:flex;align-items:center;gap:12px}
 .logo i{width:42px;height:42px;border-radius:50%;background:var(--pk);border:4px solid #fff;box-shadow:0 0 0 4px #ff66aa66}
 .info{grid-area:info;align-self:start;display:flex;gap:18px;background:#000000a6;border-radius:14px;padding:16px;backdrop-filter:blur(6px)}
 #cov{width:min(170px,34vw);height:min(170px,34vw);border-radius:10px;object-fit:cover;flex:none}
@@ -20,7 +20,7 @@ h1{font:800 1.8rem/1.1 "Exo 2",sans-serif;margin:0 0 4px;overflow-wrap:anywhere}
 .hint{font-size:.85rem;color:#ffffffa6;margin:12px 0 0;line-height:1.5}
 .songs{grid-area:songs;min-height:0;display:flex;flex-direction:column;gap:10px}
 #list{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:4px 14px 4px 0}
-#list:empty::before{content:"No songs yet.";color:#ffffffb3;padding:14px}
+#list:empty::before{content:"Nothing here yet. Open Maps to download songs.";color:#ffffffb3;padding:14px}
 .card{display:flex;align-items:center;gap:12px;background:#000000a6;border-left:6px solid #ffffff55;border-radius:10px;padding:8px 12px;cursor:pointer;transition:transform .15s,background .15s}
 .card .th{width:52px;height:52px;border-radius:7px;background:#3a2760 center/cover;flex:none}
 .card b{display:block;font-weight:800;font-size:1.05rem}.card small{color:#ffffffb3;font-size:.85rem}
@@ -44,7 +44,7 @@ h1{font:800 1.8rem/1.1 "Exo 2",sans-serif;margin:0 0 4px;overflow-wrap:anywhere}
 .t b{display:block;font:800 1.7rem/1.1 "Exo 2",sans-serif}.t span{color:var(--c);font-weight:700;font-size:.9rem}
 #rmeta{display:flex;gap:28px;margin:16px 0}#rmeta span{display:block;color:#ffffffb3;font-size:.85rem}#rmeta b{font:800 1.5rem "Exo 2",sans-serif}
 .rb{display:flex;gap:10px}.rb .play{margin:0;flex:1;padding:11px 0}.rb .btn{border:0;color:#fff;text-align:center;flex:1}
-@media(max-width:780px){#menu{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(160px,1fr) auto;grid-template-areas:"logo" "info" "songs" "bar";gap:12px;padding:14px}.info{flex-direction:column}#cov{width:100%;height:150px}.play{margin:0;width:100%}.resw{grid-template-columns:minmax(0,1fr)}.gl{font-size:7rem}}
+@media(max-width:780px){#menu{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(160px,1fr) auto;grid-template-areas:"top" "info" "songs" "bar";gap:12px;padding:14px}.info{flex-direction:column}#cov{width:100%;height:150px}.play{margin:0;width:100%}.resw{grid-template-columns:minmax(0,1fr)}.gl{font-size:7rem}}
 #splash{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#120c24;text-align:center;cursor:pointer;z-index:5;padding:24px}
 #splash .ring{width:min(46vw,200px);aspect-ratio:1;border-radius:50%;background:var(--pk);border:8px solid #fff;box-shadow:0 0 0 10px #ff66aa66;animation:pulse 1.2s ease-in-out infinite alternate;margin-bottom:26px}
 @keyframes pulse{to{transform:scale(1.06)}}
@@ -55,7 +55,7 @@ h1{font:800 1.8rem/1.1 "Exo 2",sans-serif;margin:0 0 4px;overflow-wrap:anywhere}
 @media(prefers-reduced-motion:reduce){#splash .ring{animation:none}}
 #menu.pre>*{opacity:0}
 .enter>*{animation:rise .65s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
-.logo{--y:-24px}.info{--x:-48px;--d:.08s}.songs{--x:48px;--d:.16s}.bar{--y:48px;--d:.24s}
+.top{--y:-24px}.info{--x:-48px;--d:.08s}.songs{--x:48px;--d:.16s}.bar{--y:48px;--d:.24s}
 @keyframes rise{from{opacity:0;transform:translate(var(--x,0),var(--y,0))}to{opacity:1;transform:none}}
 #splash>*{transition:opacity .25s,transform .6s cubic-bezier(.7,0,.9,.4)}
 #splash.out{pointer-events:none}
@@ -80,3 +80,35 @@ button.btn{border:0;color:#fff}
 #pause{display:flex;align-items:center;justify-content:center;background:#0a0818d9;z-index:4;padding:18px}
 #pause[hidden]{display:none}
 #pause .btn{width:100%;text-align:center}
+#desc{margin:0 0 12px;color:#ffffffd9;font-size:.95rem;line-height:1.5}
+.keys .kbs{display:flex;gap:6px;flex:1;min-width:0}
+.kb{flex:1;min-width:0;font:800 .95rem "Exo 2",sans-serif;color:#fff;background:#ffffff1f;border:2px solid #ffffff40;border-radius:8px;padding:7px 0;cursor:pointer}
+.kb:hover{background:#ffffff38}.kb.listen{border-color:var(--pk);background:#ff66aa40;font-size:.65rem}
+.btn.mini{padding:6px 12px;font-size:.8rem}
+.top{grid-area:top;display:flex;align-items:center;gap:18px;background:#000000a6;border-radius:14px;padding:10px 16px;backdrop-filter:blur(6px)}
+.tabs{display:flex;gap:4px;margin-left:10px}
+.tab{font:700 1rem "Exo 2",sans-serif;background:none;color:#ffffffb3;border:0;border-bottom:3px solid transparent;padding:8px 14px;cursor:pointer}
+.tab:hover{color:#fff}.tab.on{color:#fff;border-bottom-color:var(--pk)}
+.tab:focus-visible{outline:3px solid var(--cy);outline-offset:2px}
+.top #setbtn{margin-left:auto}
+#maps{grid-area:2/1/3/-1;min-height:0;display:flex;flex-direction:column;gap:10px;background:#000000a6;border-radius:14px;padding:14px;backdrop-filter:blur(6px)}
+#maps[hidden]{display:none}
+#menu.maps-open>.info,#menu.maps-open>.songs,#menu.maps-open>.bar{display:none}
+.mhead{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.mhead input[type=search],.mhead select{font:600 .95rem "Exo 2",sans-serif;color:#fff;background:#ffffff1f;border:2px solid #ffffff33;border-radius:10px;padding:8px 12px}
+.mhead input[type=search]{flex:1;min-width:140px}.mhead select option{color:#000}
+.chk{display:flex;align-items:center;gap:6px;font-weight:600;font-size:.9rem}
+#mcount{margin-left:auto;color:#ffffffb3;font-size:.9rem}
+#mmsg{color:#ffb3d1;font-size:.9rem}
+#mlist{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px;align-content:start;padding-right:4px}
+.mcard{display:flex;gap:12px;align-items:flex-start;background:#ffffff14;border-radius:12px;padding:10px}
+.mth{width:72px;height:72px;border-radius:8px;background:#3a2760 center/cover;flex:none}
+.mi{min-width:0;flex:1}.mi b{display:block;font-weight:800}.mi small{display:block;color:#ffffffb3;margin-bottom:6px}
+.mi .chips{margin-bottom:6px}
+.mi p{margin:0;color:#ffffffcc;font-size:.85rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mact{display:flex;flex-direction:column;gap:6px;align-items:stretch;flex:none;width:112px}
+.btn.dl{background:var(--pk)}.btn.dl:hover{background:#ff80b8}
+.btn.done{background:#4fd6ff33;color:#bff0ff;cursor:default}
+.btn.ghost{background:transparent;border:1px solid #ffffff40}
+.mempty{color:#ffffffb3;padding:14px}
+@media(max-width:780px){#menu.maps-open{grid-template-rows:auto minmax(0,1fr);grid-template-areas:"top" "info"}#maps{grid-area:info}.mcard{flex-wrap:wrap}.mact{flex-direction:row;width:100%}.top{flex-wrap:wrap;gap:10px}.tabs{margin-left:0}#mlist{grid-template-columns:1fr}}
